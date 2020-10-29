@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @event = @user.events.build(event_params)
 
     respond_to do |format|
-      if @post.save
+      if @event.save
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = @user.events.build
+    @event = Event.new
   end
 
   private
@@ -28,6 +28,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:event, :user_id)
+    params.require(:event).permit(:event, :user_id, :event_id)
   end
 end
