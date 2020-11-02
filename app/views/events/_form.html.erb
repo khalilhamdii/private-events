@@ -1,11 +1,7 @@
-<%= simple_form_for(@event) do |f| %>
+<%= simple_form_for @event, :html => {:class => "mb-5 bg-light p-4"} do |f| %>
   <%= f.error_notification %>
-  <div class="field">
-    <div class="control">
-      <%= f.input :title, label: "Create Event", input_html: { class: "textarea "}, wrapper: false, label_html: {class: "label"}, placeholder: "Create a new article...", autofocus: true %>
-      <%= f.input :description, placeholder: "description" %>
-      <%= f.input :date, wrapper: false %>    
-    </div>
-  </div>
-  <%= f.button :submit, class: "button is-primary" %>
+  <%= f.input :title, label: "Event title", placeholder: "Add title here..." %>
+  <%= f.input :date, label: "Event date" %>
+  <%= f.input :description, label: "Event title", placeholder: "Add description here..." %>
+  <%= f.button :submit, class: "btn-success" %>
 <% end %>

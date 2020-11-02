@@ -1,9 +1,20 @@
-<section class="section">
-  <div class="container">
-  <div class="columns">
-  <div class="column">
-      <%= render 'all-events' %>
-    </div>
+<p id='notice'><%= notice %></p>
+<div class="container mt-5">
+  <% if logged_in? %>
+    <h3>Create a new event</h3>
+    <%= render 'form' %>
+  <% end %>
+  <h1>List of events</h1>
+  <div class="results-column d-flex flex-column p-3">
+    <% @events.each do |event| %>
+      <div class="bg-light p-2 mb-2" >
+        <div class="d-flex justify-content-between">
+          <h4><%= event.title %></h4>
+          <div><%= event.date %></div>
+        </div>
+        <div><%= event.description %></div>
+        <%= button_to 'Attend', @event_attendence, method: :post, class: "btn-success" %>
+      </div>
+    <% end %>
   </div>
-  </div>
-</section>
+</div>
