@@ -11,6 +11,18 @@
   </head>
 
   <body>
+  <nav class="navbar bg-warning d-flex justify-content-between align-items-center">
+      <button onclick="location.href = '../home';" class="btn btn-light font-weight-bold" >Private Events</button>
+      <div>
+        <% if logged_in? %>
+          <button onclick="location.href = 'users';" class="btn btn-success mr-2" ><%= current_user.name %></button>
+          <button onclick="location.href = 'logout';" class="btn btn-success" >Logout</button>
+        <% else %>
+          <button onclick="location.href = 'signup';" class="btn btn-success mr-2" >Sign Up</button>
+          <button onclick="location.href = 'login';" class="btn btn-success" >Login</button>
+        <% end %>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
