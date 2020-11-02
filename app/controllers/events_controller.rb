@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all.order("created_at DESC")
+    @events = Event.all.order('created_at DESC')
     @event = Event.new
   end
 
@@ -12,9 +12,9 @@ class EventsController < ApplicationController
     @event = current_user.created_events.build(event_params)
     respond_to do |format|
       if @event.save
-        format.html { redirect_to root_path, notice: "Event was successfully created." }
+        format.html { redirect_to root_path, notice: 'Event was successfully created.' }
       else
-        format.html { render "form" }
+        format.html { render 'form' }
       end
     end
   end
@@ -23,13 +23,22 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def edit
+  def edit; end
+
+  def update
+    respond_to do |format|
+      if @event.update(event_params)
+        format.html { redirect_to users_path, notice: 'Event was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to users_url, notice: 'Event was successfully destroyed.' }
     end
   end
 
