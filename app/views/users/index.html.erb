@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<h1>User profile</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= current_user.name %></td>
+      <td><%= current_user.email %></td>
+      <td><%= link_to 'Edit', edit_user_path(current_user) %></td>
+      <td><%= link_to 'Destroy', current_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Show created events', current_user %> <br>
+<%= link_to 'Back to homepage', root_path %>
