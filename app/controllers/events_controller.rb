@@ -1,35 +1,38 @@
 class EventsController < ApplicationController
-  def index
-    @events = Event.all.order('created_at DESC')
+  def index 
+    @previous_events = Event.past
+    @upcoming_events = Event.future
     @event = Event.new
     @event_attendence = EventAttendence.new
   end
 
-  def show
+  def show 
     @event = Event.find(params[:id])
-  end
-
-  def create
-    @event = current_user.created_events.build(event_params)
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to root_path, notice: 'Event was successfully created.' }
-      else
-        format.html { render 'form' }
-      end
-    end
   end
 
   def new
     @event = Event.new
   end
 
-  def edit; end
+  def edit
+  end
+
+  def create
+    @event = current_user.created_events.build(event_params)
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to root_path, notice: 'Event was successfully created.' }
+      else
+        format.html { render "form" }
+      end
+    end
+  end
 
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to users_path, notice: 'Event was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Event was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -44,12 +47,8 @@ class EventsController < ApplicationController
   end
 
   private
+    def event_params
+      params.require(:event).permit(:title, :date, :description)
+    end
 
-  def set_event
-    @event = Event.find(params[:id])
-  end
-
-  def event_params
-    params.require(:event).permit(:title, :date, :description)
-  end
 end

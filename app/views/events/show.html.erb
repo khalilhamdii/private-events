@@ -1,18 +1,20 @@
-<p id="notice"><%= notice %></p>
-<h1>User events</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @event.attendees.each do |attendee| %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1>List of attendees </h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= attendee.name %></td>
+        <th>Name :</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'Back', users_path %>
+    </thead>
+    <tbody>
+      <% @event.attendees.each do |attendee| %>
+        <tr>
+          <td><%= attendee.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Back', root_path %>
+</div>

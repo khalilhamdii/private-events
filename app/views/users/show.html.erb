@@ -1,24 +1,31 @@
 <p id="notice"><%= notice %></p>
-<h1>User events</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="container">
+  <h4>Upcoming events</h4>
+  <div class="results-column d-flex flex-column p-3">
     <% current_user.created_events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.date %></td>
-        <td><%= event.description %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if event.date > Time.now  %>
+        <div class="bg-light p-2 mb-2" >
+          <div class="d-flex justify-content-between">
+            <h4><%= event.title %></h4>
+            <div><%= event.date %></div>
+          </div>
+          <div><%= event.description %></div>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
-<%= link_to 'Back', users_path %>
+  </div>
+  <h4>Previous events</h4>
+  <div class="results-column d-flex flex-column p-3">
+    <% current_user.created_events.each do |event| %>
+      <% if Time.now > event.date  %>
+        <div class="bg-light p-2 mb-2" >
+          <div class="d-flex justify-content-between">
+            <h4><%= event.title %></h4>
+            <div><%= event.date %></div>
+          </div>
+          <div><%= event.description %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <button onclick="location.href = '../users';" class="btn btn-success" >Back</button>

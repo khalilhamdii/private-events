@@ -4,18 +4,41 @@
     <h3>Create a new event</h3>
     <%= render 'form' %>
   <% end %>
-  <h1>List of events</h1>
+  <h1>Upcoming events</h1>
   <div class="results-column d-flex flex-column p-3">
-    <% @events.each do |event| %>
+    <% @upcoming_events.each do |event| %>
       <div class="bg-light p-2 mb-2" >
         <div class="d-flex justify-content-between">
-          <h4><%= event.title %></h4>
+          <h4><%= link_to "#{event.title}", event, class: "text-secondary" %></h4>
           <div><%= event.date %></div>
         </div>
+        <div><%= event.description %></div>
+        <% if logged_in? %>
+          <%= simple_form_for @event_attendence do |f| %>
+            <%= f.hidden_field :attendee_id, :value => current_user.id %>
+            <%= f.hidden_field :attended_event_id, :value => event.id %>
+            <%= f.button :submit, "Attend", class: "btn-success float-right mt-2" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <h1>Previous of events</h1>
+  <div class="results-column d-flex flex-column p-3">
+    <% @previous_events.each do |event| %>
+      <div class="bg-light p-2 mb-2" >
         <div class="d-flex justify-content-between">
-          <%= event.description %>
-          <%= button_to "Attend",  @event_attendence, class: "btn btn-success" %>
+          <h4><%= link_to "#{event.title}", event, class: "text-secondary" %></h4>
+          <div><%= event.date %></div>
         </div>
+        <div><%= event.description %></div>
+        <% if logged_in? %>
+          <%= simple_form_for @event_attendence do |f| %>
+            <%= f.hidden_field :attendee_id, :value => current_user.id %>
+            <%= f.hidden_field :attended_event_id, :value => event.id %>
+            <%= f.button :submit, "Attend", class: "btn-success float-right mt-2" %>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>
