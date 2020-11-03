@@ -5,15 +5,15 @@ RSpec.describe "Events", type: :request do
   let(:creator) { Event.reflect_on_association(:creator).macro }
   let(:event_attendees) { Event.reflect_on_association(:event_attendences).macro }
 
-    it "should have many teams" do
+    it "checks if association is correct" do
       expect(attendees).to eq(:has_many)
     end
 
-    it "should have many teams" do
+    it "checks if association is correct" do
       expect(creator).to eq(:belongs_to)
     end
 
-    it "should have many teams" do
+    it "checks if association is correct" do
       expect(event_attendees).to eq(:has_many)
     end
 end
