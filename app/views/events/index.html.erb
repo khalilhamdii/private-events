@@ -4,6 +4,7 @@
     <h3>Create a new event</h3>
     <%= render 'form' %>
   <% end %>
+
   <h1>Upcoming events</h1>
   <div class="results-column d-flex flex-column p-3">
     <% @upcoming_events.each do |event| %>
@@ -23,6 +24,7 @@
       </div>
     <% end %>
   </div>
+
   <h1>Previous of events</h1>
   <div class="results-column d-flex flex-column p-3">
     <% @previous_events.each do |event| %>
@@ -42,4 +44,6 @@
       </div>
     <% end %>
   </div>
+
+  
 </div>
