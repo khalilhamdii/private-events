@@ -3,12 +3,10 @@
   <h2 class="text-primary">Events Attending</h2>
   <div class="results-column d-flex flex-column p-3">
     <% current_user.attended_events.each do |event| %>
-      <div class="bg-light p-2 mb-2" >
-        <div class="d-flex justify-content-between">
-          <h4><%= event.title %></h4>
-          <div><%= event.date %></div>
-        </div>
+      <div class="bg-light p-4 mb-2 d-flex justify-content-between" >
+          <h4 class="text-info"><%= event.title %></h4>
         <div><%= event.description %></div>
+        <div class="text-warning"><%= event.date %></div>
       </div>
     <% end %>
   </div>
