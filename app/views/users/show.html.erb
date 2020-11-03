@@ -17,29 +17,13 @@
     <h4>Upcoming events</h4>
     <div class="results-column d-flex flex-column p-3">
       <% current_user.created_events.each do |event| %>
-        <% if event.date > Time.now  %>
-          <div class="bg-light p-2 mb-2" >
-            <div class="d-flex justify-content-between">
-              <h4><%= event.title %></h4>
-              <div><%= event.date %></div>
-            </div>
-            <div><%= event.description %></div>
-          </div>
-        <% end %>
+        <%= future_events(event, event.date) %>  
       <% end %>
     </div>
     <h4>Previous events</h4>
     <div class="results-column d-flex flex-column p-3">
       <% current_user.created_events.each do |event| %>
-        <% if Time.now > event.date  %>
-          <div class="bg-light p-2 mb-2" >
-            <div class="d-flex justify-content-between">
-              <h4><%= event.title %></h4>
-              <div><%= event.date %></div>
-            </div>
-            <div><%= event.description %></div>
-          </div>
-        <% end %>
+        <%= past_events(event, event.date) %>
       <% end %>
     </div>
   </div>
