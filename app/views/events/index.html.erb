@@ -4,14 +4,13 @@
     <h3>Create a new event</h3>
     <%= render 'form' %>
   <% end %>
-
   <h1 class="text-success">Upcoming events</h1>
   <div class="results-column d-flex flex-column p-3">
     <% @upcoming_events.each do |event| %>
       <div class="bg-light p-2 mb-2" >
         <div class="d-flex justify-content-between">
           <h4><%= link_to "#{event.title}", event, class: "text-secondary" %></h4>
-          <div><%= event.date %></div>
+          <div class="text-success"><%= event.date %></div>
         </div>
         <div><%= event.description %></div>
         <% if logged_in? %>
@@ -24,14 +23,13 @@
       </div>
     <% end %>
   </div>
-
   <h1 class="text-danger">Previous of events</h1>
   <div class="results-column d-flex flex-column p-3">
     <% @previous_events.each do |event| %>
       <div class="bg-light p-2 mb-2" >
         <div class="d-flex justify-content-between">
           <h4><%= link_to "#{event.title}", event, class: "text-secondary" %></h4>
-          <div><%= event.date %></div>
+          <div class="text-success"><%= event.date %></div>
         </div>
         <div><%= event.description %></div>
         <% if logged_in? %>
@@ -44,6 +42,4 @@
       </div>
     <% end %>
   </div>
-
-  
 </div>

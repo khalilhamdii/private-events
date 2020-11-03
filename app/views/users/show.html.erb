@@ -5,25 +5,26 @@
     <% current_user.attended_events.each do |event| %>
       <div class="bg-light p-2 mb-2" >
         <div class="d-flex justify-content-between">
-          <h4><%= event.title %></h4>
-          <div><%= event.date %></div>
+          <h4 class="text-secondary"><%= event.title %></h4>
+          <div class="text-success"><%= event.date %></div>
         </div>
         <div><%= event.description %></div>
       </div>
     <% end %>
   </div>
   <div>
-    <h2 class="text-success"> Created Events </h2> <br>
+    <h2 class="text-success"> Created Events </h2>
+    <br>
     <h4>Upcoming events</h4>
     <div class="results-column d-flex flex-column p-3">
       <% current_user.created_events.each do |event| %>
-        <%= future_events(event, event.date) %>  
+        <%= future_events(event, event.date) %>
       <% end %>
     </div>
     <h4>Previous events</h4>
     <div class="results-column d-flex flex-column p-3">
       <% current_user.created_events.each do |event| %>
-        <%= past_events(event, event.date) %>
+        <%= previous_events(event, event.date) %>
       <% end %>
     </div>
   </div>
