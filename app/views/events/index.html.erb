@@ -5,7 +5,7 @@
     <%= render 'form' %>
   <% end %>
 
-  <h1>Upcoming events</h1>
+  <h1 class="text-success">Upcoming events</h1>
   <div class="results-column d-flex flex-column p-3">
     <% @upcoming_events.each do |event| %>
       <div class="bg-light p-2 mb-2" >
@@ -25,7 +25,7 @@
     <% end %>
   </div>
 
-  <h1>Previous of events</h1>
+  <h1 class="text-danger">Previous of events</h1>
   <div class="results-column d-flex flex-column p-3">
     <% @previous_events.each do |event| %>
       <div class="bg-light p-2 mb-2" >
