@@ -1,11 +1,8 @@
 # rubocop:disable Style/GuardClause
 
 module EventsHelper
-
   def event_form
-    if logged_in?
-       render 'form'
-    end
+    render 'form' if logged_in?
   end
 
   def button(event)
