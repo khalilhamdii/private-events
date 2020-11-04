@@ -1,9 +1,6 @@
 <p id='notice'><%= notice %></p>
 <div class="container mt-5">
-  <% if logged_in? %>
-    <h3>Create a new event</h3>
-    <%= render 'form' %>
-  <% end %>
+  <%= event_form %>
   <h1 class="text-success">Upcoming events</h1>
   <div class="results-column d-flex flex-column p-3">
     <% @upcoming_events.each do |event| %>

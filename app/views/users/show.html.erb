@@ -2,7 +2,7 @@
 <div class="container">
   <h2 class="text-primary">Events Attending</h2>
   <div class="results-column d-flex flex-column p-3">
-    <% current_user.attended_events.each do |event| %>
+    <% @attended_events.each do |event| %>
       <div class="bg-light p-2 mb-2" >
         <div class="d-flex justify-content-between">
           <h4 class="text-secondary"><%= event.title %></h4>
@@ -17,14 +17,26 @@
     <br>
     <h4>Upcoming events</h4>
     <div class="results-column d-flex flex-column p-3">
-      <% current_user.created_events.each do |event| %>
-        <%= future_events(event, event.date) %>
+      <% @upcoming_events.each do |event| %>
+        <div class="bg-light p-2 mb-2" >
+          <div class="d-flex justify-content-between">
+            <h4><%= link_to "#{event.title}", event, class: "text-secondary" %></h4>
+            <div class="text-success"><%= event.date %></div>
+          </div>
+          <div><%= event.description %></div>
+        </div>
       <% end %>
     </div>
     <h4>Previous events</h4>
     <div class="results-column d-flex flex-column p-3">
-      <% current_user.created_events.each do |event| %>
-        <%= previous_events(event, event.date) %>
+      <% @previous_events.each do |event| %>
+        <div class="bg-light p-2 mb-2" >
+          <div class="d-flex justify-content-between">
+            <h4><%= link_to "#{event.title}", event, class: "text-secondary" %></h4>
+            <div class="text-success"><%= event.date %></div>
+          </div>
+          <div><%= event.description %></div>
+        </div>
       <% end %>
     </div>
   </div>

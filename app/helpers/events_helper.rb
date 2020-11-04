@@ -1,4 +1,11 @@
 module EventsHelper
+
+  def event_form
+    if logged_in?
+       render 'form'
+    end
+  end
+
   def button(event)
      if logged_in?
       if !EventAttendence.exists?(attendee_id: current_user.id,attended_event_id: event.id) 

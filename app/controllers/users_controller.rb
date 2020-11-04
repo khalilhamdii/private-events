@@ -5,13 +5,14 @@ class UsersController < ApplicationController
 
   def show
     redirect_to login_path unless logged_in?
+    @attended_events = current_user.attended_events
+    @upcoming_events = current_user.created_events.future
+    @previous_events = current_user.created_events.past
   end
 
   def new
     @user = User.new
   end
-
-  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -26,10 +27,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
   def update
+    @user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -37,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
