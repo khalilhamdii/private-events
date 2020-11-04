@@ -1,4 +1,4 @@
-# rubocop:disable Layout/LineLength
+# rubocop:disable Layout/LineLength, Style/StringConcatenation
 module UserHelper
   def future_events(event, date)
     tmp = content_tag :div, class: 'field d-flex justify-content-between' do
@@ -21,4 +21,4 @@ module UserHelper
   end
 end
 
-# rubocop:enable Layout/LineLength
+# rubocop:enable Layout/LineLength, Style/StringConcatenation
