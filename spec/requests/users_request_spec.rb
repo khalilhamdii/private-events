@@ -27,7 +27,11 @@ RSpec.describe "Users", type: :request do
     expect(event_attendences_test).to eq(:has_many)
   end
 
-  it 'checks if name is correct' do
+  it 'checks if the name is correct' do
     assert_equal 'Daniel Ronan', user.name
+  end
+
+  it 'checks if the email is correct' do
+    assert_equal 'dan@email.com', user.email
   end
 end
