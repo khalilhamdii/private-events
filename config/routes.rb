@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'events#index'
+  resources :users
+  resources :events
+  resources :event_attendences, only: [:new, :create]
+  resources :sessions, only: [:index, :new, :create, :destroy]
+  get 'show_events', to: 'users#show', as: 'show_events'
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'home', to: 'events#index', as: 'home'
+
 end
