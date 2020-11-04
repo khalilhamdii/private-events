@@ -13,13 +13,7 @@
           <div class="text-success"><%= event.date %></div>
         </div>
         <div><%= event.description %></div>
-        <% if logged_in? %>
-          <%= simple_form_for @event_attendence do |f| %>
-            <%= f.hidden_field :attendee_id, :value => current_user.id %>
-            <%= f.hidden_field :attended_event_id, :value => event.id %>
-            <%= f.button :submit, "Attend", class: "btn-success float-right mt-2" %>
-          <% end %>
-        <% end %>
+        <%= button(event) %>
       </div>
     <% end %>
   </div>
@@ -32,13 +26,7 @@
           <div class="text-success"><%= event.date %></div>
         </div>
         <div><%= event.description %></div>
-        <% if logged_in? %>
-          <%= simple_form_for @event_attendence do |f| %>
-            <%= f.hidden_field :attendee_id, :value => current_user.id %>
-            <%= f.hidden_field :attended_event_id, :value => event.id %>
-            <%= f.button :submit, "Attend", class: "btn-success float-right mt-2" %>
-          <% end %>
-        <% end %>
+        <%= button(event) %>
       </div>
     <% end %>
   </div>
