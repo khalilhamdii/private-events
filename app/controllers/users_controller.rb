@@ -1,23 +1,17 @@
 class UsersController < ApplicationController
-
   def index
-    if !logged_in?
-      redirect_to login_path
-    end
+    redirect_to login_path unless logged_in?
   end
 
   def show
-    if !logged_in?
-      redirect_to login_path
-    end
+    redirect_to login_path unless logged_in?
   end
 
   def new
     @user = User.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -51,7 +45,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
 end
