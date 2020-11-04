@@ -4,11 +4,7 @@
   <section class="signup-form bg-light">
     <h4 class="text-center">Login</h4>
     <%= form_tag sessions_path, {:class => 'form-input'} do %>
-      <% if alert %>
-        <ul>
-          <li class="errors"><%= alert %></li>
-        </ul>
-      <% end %>
+      <%= alert_error %>
       <div class='input-field'>
         <div class="labels">
           <label>
