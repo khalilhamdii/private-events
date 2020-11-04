@@ -19,11 +19,11 @@ Private events web app allows users to signup/sign in. Users can create events a
 
 ### Events page
 
-![img](/app/assets/images/Privat_event-homepage.png)
+![img](./app/assets/images/Privat_event-homepage.PNG)
 
 ### Sign up page
 
-![img](/app/assets/images/Privat_event-signuppage.png)
+![img](/app/assets/images/Privat_event-signuppage.PNG)
 
 ## Built With 🛠
 
