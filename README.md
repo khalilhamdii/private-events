@@ -1,4 +1,4 @@
-# Members Only
+# Private Events
 
 ![Microverse](https://img.shields.io/badge/-Microverse-6F23FF?style=for-the-badge)
 
@@ -11,6 +11,7 @@ Private events web app allows users to signup/sign in. Users can create events a
 | [Screenshots](#screenshots) |
 | [Built With](#built-with-🛠) |
 | [Install](#install-⏳)      |
+| [Testing](#testing)         |
 | [Authors](#authors)         |
 | [License](#license)         |
 
@@ -48,6 +49,22 @@ Private events web app allows users to signup/sign in. Users can create events a
 7. - [ ] Run `rails db:migrate` to migrate your database
 8. - [ ] Run `rails s` to get the server running
 9. - [ ] Enter `http://localhost:3000/` in the browser to get the app running
+
+## Testing
+
+In order to run the tests, RSPEC should be installed.
+
+- Please run the following command line in your terminal to install :
+
+```bash
+gem install rspec
+```
+
+- When the installation is complete, type this command inside `private-events` folder to run the tests :
+
+```bash
+rspec
+```
 
 ## Authors
 
