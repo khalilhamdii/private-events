@@ -2,7 +2,7 @@
 
 ![Microverse](https://img.shields.io/badge/-Microverse-6F23FF?style=for-the-badge)
 
-Private events webapp allows users to signup / signin. Users can create events and events take place at a specific date and at a location. A user can attend many events. An event can be attended by many users.
+Private events web app allows users to signup/sign in. Users can create events and events take place at a specific date and at a location. A user can attend many events. An event can be attended by many users.
 
 ## Library Directory 📙
 
@@ -19,11 +19,11 @@ Private events webapp allows users to signup / signin. Users can create events a
 
 ### Events page
 
-![img](./app/assets/images/Privat_event-homepage.png)
+![img](/app/assets/images/Privat_event-homepage.png)
 
 ### Sign up page
 
-![img](./app/assets/images/Privat_event-signuppage.png)
+![img](/app/assets/images/Privat_event-signuppage.png)
 
 ## Built With 🛠
 
