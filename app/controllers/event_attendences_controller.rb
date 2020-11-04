@@ -4,7 +4,7 @@ class EventAttendencesController < ApplicationController
   end
 
   def create
-     @event_attendence = EventAttendence.create(event_attendence_params)
+    @event_attendence = EventAttendence.create(event_attendence_params)
   end
 
   private
