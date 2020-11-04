@@ -12,8 +12,7 @@ Private events web app allows users to signup/sign in. Users can create events a
 | [Built With](#built-with-🛠) |
 | [Install](#install-⏳)      |
 | [Authors](#authors)         |
-
-| [License](#license)
+| [License](#license)         |
 
 ## Screenshots
 
