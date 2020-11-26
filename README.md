@@ -17,8 +17,6 @@ Private events web app allows users to signup/sign in. Users can create events a
 
 ## Screenshots
 
-### Events page
-
 ![img](./app/assets/images/main.png)
 
 ## Built With 🛠
