@@ -2,7 +2,10 @@
 
 ![Microverse](https://img.shields.io/badge/-Microverse-6F23FF?style=for-the-badge)
 
-Private events web app allows users to signup/sign in. Users can create events and events take place at a specific date with a title & description. A user can attend many events. An event can be attended by many users.
+Private events is a web app that allows users
+to sign up/sign in. Users can create events; events have a title and a description, and take
+place on a specific date. A user can attend many events. An event can be attended by many
+users.
 
 ## Library Directory 📙
 
